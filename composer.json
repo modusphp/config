@@ -1,0 +1,23 @@
+{
+    "name": "modus/config",
+    "description": "The Modus Configuration class, supporting various local and global configuration settings for the Modus framework.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Brandon Savage",
+            "email": "brandon@brandonsavage.net"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.3",
+        "mockery/mockery": "0.9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Modus\\Config\\": "src"
+        }
+    }
+}
