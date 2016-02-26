@@ -26,27 +26,6 @@ class ConfigTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals($expected, $config);
     }
 
-    public function testDotenvIntegrationPopulatesVariables()
-    {
-        $configdir = realpath(__DIR__ . '/../../assets');
-
-        $dotEnv = new \Dotenv\Dotenv($configdir);
-
-        $configuration = new Config(Config::ENV_PRODUCTION, $configdir, $dotEnv);
-
-        $config = $configuration->getConfig();
-        $expected = [
-            'a' => 1,
-            'config_classes' => ['SampleConfig'],
-            'c' => 123,
-            'd' => 'test.php',
-            'envTest' => 'test',
-            'helloTest' => 'hello world!',
-        ];
-
-        $this->assertEquals($expected, $config);
-    }
-
     /**
      * @expectedException Modus\Config\Exception\InvalidEnvironment
      * @expectedMessage is an invalid environment

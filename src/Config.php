@@ -55,15 +55,11 @@ class Config
      * @param DotEnv|null $dotenv
      * @throws Exception\InvalidEnvironment
      */
-    public function __construct($enviornment, $configDir, Dotenv $dotenv = null)
+    public function __construct($enviornment, $configDir)
     {
         $this->environment = $this->validateEnvironment($enviornment);
         $this->configDir = realpath($configDir);
-        $this->dotEnv = $dotenv;
 
-        if($this->dotEnv instanceof Dotenv) {
-            $this->loadEnvVariables();
-        }
         $this->loadConfiguration();
     }
 
@@ -87,11 +83,6 @@ class Config
         }
 
         return $env;
-    }
-
-    protected function loadEnvVariables()
-    {
-        $this->dotEnv->load();
     }
 
     /**
